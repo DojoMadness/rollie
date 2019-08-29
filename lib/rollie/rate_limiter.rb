@@ -1,7 +1,7 @@
 module Rollie
 
   class RateLimiter
-
+    attr_reader :key
     # Create a new RateLimiter instance.
     #
     # @param [String] key A unique name to track this rate limit against.

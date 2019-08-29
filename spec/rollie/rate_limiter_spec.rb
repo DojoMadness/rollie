@@ -7,6 +7,14 @@ module Rollie
       @r = RateLimiter.new(SecureRandom.hex(8), count_blocked: true)
     end
 
+    describe :key do
+      it "should be accessable" do
+        key = SecureRandom.hex(8)
+        @r = RateLimiter.new(key, limit: 10, interval: 100)
+        expect(@r.key).to eq(key)
+      end
+    end
+
     describe :within_limit do
 
       it "should require a block" do
